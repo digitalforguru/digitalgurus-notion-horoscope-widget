@@ -35,6 +35,17 @@ body {
   opacity: 0.85;
 }
 
+.top-left-controls {
+  position: relative;
+
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0 6px;
+}
+
 /* controls row */
 .controls {
   display: flex;
@@ -44,22 +55,27 @@ body {
 
 /* buttons */
 .btn {
-  padding: 10px 12px;
-  border-radius: 14px;
-  border: none;
   cursor: pointer;
 
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  width: 56px;
+  height: 56px;
 
-  font-size: 13px;
+  border-radius: 18px;
 
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .copy-message {
@@ -120,36 +136,75 @@ body {
 /* ───────────────── WIDGET PREVIEW ───────────────── */
 
 .widget {
-  width: 260px;
-  padding: 22px;
+  background-color: #f4dfeb;
   border-radius: 22px;
 
-  background: #ffdbe7;
+  padding: 12px;
 
-  box-shadow: 0 14px 40px rgba(0,0,0,0.10);
+  width: 180px;
+  height: 180px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6px;
 
   text-align: center;
+  color: #000;
+  font-size: 0.8rem;
+  text-transform: lowercase;
 
-  transition: background 0.3s ease;
+  user-select: none;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.widget.pink { background-color: #f4dfeb; color: #60355c; }
+.widget.beige { background-color: #faebdd; color: #5d4c3a; }
+.widget.blue  { background-color: #ddebf1; color: #4b5c74; }
+.widget.green { background-color: #ddedea; color: #5b6c5a; }
+
+.widget-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+  width: 100%;
 }
 
 #signDisplay {
-  font-size: 16px;
   font-weight: 600;
-  text-transform: lowercase;
-  margin-bottom: 8px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  letter-spacing: 0.4px;
+  margin: 0;
 }
 
 #text {
-  font-size: 14px;
-  line-height: 1.45;
-  opacity: 0.9;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 #date {
-  font-size: 11px;
-  opacity: 0.5;
-  margin-top: 10px;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  margin: 0;
 }
 
 /* ───────────────── COPY BUTTON ───────────────── */
@@ -173,7 +228,113 @@ body {
   opacity: 0.9;
 }
 
+.theme-options {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 16px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+
+  z-index: 20;
+}
+
+.theme-circle {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  border: 2px solid rgba(0,0,0,0.08);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-circle:hover {
+  transform: scale(1.25);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.theme-circle.pink { background-color: #f4dfeb; }
+.theme-circle.beige { background-color: #faebdd; }
+.theme-circle.blue { background-color: #ddebf1; }
+.theme-circle.green { background-color: #ddedea; }
 /* utility */
 .hidden {
   display: none;
+}
+.sign-title {
+  font-size: 10px;
+  opacity: 0.6;
+  text-transform: lowercase;
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.sign-popup {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+
+  padding: 14px;
+  width: 180px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+
+  z-index: 50;
+}
+.copy-message {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #888;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-message.show {
+  opacity: 1;
+}
+
+.footer-links {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-size: 11px;
+
+  opacity: 0.65;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: inherit;
 }
