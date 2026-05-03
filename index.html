@@ -1,449 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>digtitalguru's horoscope widget </title>
-
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    background: transparent;
-  }
-.widget-wrapper {
-  display: inline-block;
-  transform-origin: top left; /* scale from top-left corner */
-  width: 100%; /* container width controlled by Notion */
-  height: auto;
-}
-
-/* Scale the widget down proportionally */
-.widget-wrapper {
-  transform: scale(0.8); /* 0.8 = 80% size, adjust as needed */
-}
-    .widget {
-    width: 260px;
-    padding: 22px;
-    border-radius: 22px;
-    background: #ffd6e0;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  .sparkles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: url('https://i.pinimg.com/originals/69/e2/7c/69e27c177766a3cb153b37682b22186c.gif') center/cover no-repeat;
-    opacity: 1;
-    z-index: 1;
-  }
-
-  /* header */
-  .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-    z-index: 2;
-    position: relative;
-  }
-
-  .signWrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #headerSign {
-    font-size: 18px;
-    text-transform: lowercase;
-    letter-spacing: -0.3px;
-    margin-bottom: 4px;
-  }
-
-  .leafBtn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: transform .2s, opacity .2s;
-    margin-right: 6px;
-  }
-
-  .leafBtn:hover {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-
-  .toggleBtn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: .6;
-    transition: .2s;
-  }
-
-  .toggleBtn:hover {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-
-  /* zodiac buttons dropdown */
-  .zodiac-buttons {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 6px;
-    margin-top: 8px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    z-index: 2;
-    position: relative;
-  }
-
-  .zodiac-buttons.show {
-    max-height: 300px;
-  }
-
-  .zodiac-buttons button {
-    background: white;
-    border: none;
-    border-radius: 12px;
-    padding: 6px 0;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background .2s, transform .15s, box-shadow .2s;
-  }
-
-  .zodiac-buttons button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-  .zodiac-buttons button.active {
-    background: rgba(0,0,0,0.15); 
-    font-weight: 600;
-  }
-
-  /* details */
-  #details {
-    overflow: hidden;
-    transition: max-height .35s ease;
-    max-height: 300px;
-    position: relative;
-    z-index: 2;
-  }
-
-  #horoscopeText {
-    font-size: 14px;
-    line-height: 1.45;
-    text-transform: lowercase;
-  }
-
-  #horoscopeText strong {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-    text-transform: lowercase;
-  }
-
-  #dateLabel {
-    font-size: 11px;
-    opacity: 0.55;
-    margin-top: 8px;
-    text-align: right;
-    text-transform: lowercase;
-  }
-
-  /* mini magical area when collapsed */
-  #miniMagic {
-    display: none;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.95;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 12px;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    animation: sparkle 2s infinite alternate;
-    z-index: 2;
-    position: relative;
-    text-transform: lowercase;
-  }
-
-  #miniMagic span {
-    display: block;
-    margin: 2px 0;
-  }
-  #dailyQuote em {
-  font-style: italic;
-  opacity: 0.9;
-}
-
-  @keyframes sparkle {
-    0% { box-shadow: 0 4px 8px rgba(255,255,255,0.2); }
-    50% { box-shadow: 0 6px 12px rgba(255,255,255,0.4); }
-    100% { box-shadow: 0 4px 8px rgba(255,255,255,0.2); }
-  }
-
-  /* themes */
-  .themes {
-    margin-top: 16px;
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    z-index: 2;
-    position: relative;
-  }
-
-  .themes button {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-  }
-
-  .themes button:hover {
-    transform: scale(1.2);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DigitalGuru Horoscope Widget</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<div class="widget-wrapper">
-  <div class="widget" id="widget">
-  <div class="sparkles"></div>
-  
-  <!-- HEADER + toggle + leaf -->
-  <div class="top">
-    <div class="signWrap">
-      <strong id="headerSign">aries</strong>
+<!-- 🌸 BUILDER UI -->
+<div class="builder-ui">
+
+  <h1 class="header">DigitalGuru Horoscope Widget</h1>
+
+  <!-- controls row -->
+  <div class="controls">
+
+    <!-- sign -->
+    <button id="signBtn" class="btn">♈ sign</button>
+    <div id="signPanel" class="panel hidden">
+      <button data-sign="aries">aries</button>
+      <button data-sign="taurus">taurus</button>
+      <button data-sign="gemini">gemini</button>
+      <button data-sign="cancer">cancer</button>
+      <button data-sign="leo">leo</button>
+      <button data-sign="virgo">virgo</button>
+      <button data-sign="libra">libra</button>
+      <button data-sign="scorpio">scorpio</button>
+      <button data-sign="sagittarius">sagittarius</button>
+      <button data-sign="capricorn">capricorn</button>
+      <button data-sign="aquarius">aquarius</button>
+      <button data-sign="pisces">pisces</button>
     </div>
-    <div style="display:flex; align-items:center;">
-      <button class="leafBtn" id="leafBtn">˙⋆✮</button>
-      <button class="toggleBtn" id="toggleBtn">⌄</button>
+
+    <!-- theme -->
+    <button id="themeBtn" class="btn">🎨 theme</button>
+    <div id="themePanel" class="panel hidden">
+      <button data-theme="#ffdbe7"></button>
+      <button data-theme="#c1d0b5"></button>
+      <button data-theme="#d6e8ff"></button>
+      <button data-theme="#e7e3dc"></button>
     </div>
-  </div>
-  
-  <!-- zodiac buttons dropdown -->
-  <div class="zodiac-buttons" id="zodiacButtons">
-    <button data-sign="aries">♈︎</button>
-    <button data-sign="taurus">♉︎</button>
-    <button data-sign="gemini">♊︎</button>
-    <button data-sign="cancer">♋︎</button>
-    <button data-sign="leo">♌︎</button>
-    <button data-sign="virgo">♍︎</button>
-    <button data-sign="libra">♎︎</button>
-    <button data-sign="scorpio">♏︎</button>
-    <button data-sign="sagittarius">♐︎</button>
-    <button data-sign="capricorn">♑︎</button>
-    <button data-sign="aquarius">♒︎</button>
-    <button data-sign="pisces">♓︎</button>
+
   </div>
 
-  <!-- details -->
-  <div id="details">
-    <div id="horoscopeText">loading…</div>
-    <div id="dateLabel"></div>
-  </div>
-
-  <!-- mini magic -->
-  <div id="miniMagic">
-    <span id="luckyNumber"></span>
-    <span id="birthstone"></span>
-    <span id="dailyQuote"></span>
-  </div>
-
-  <!-- themes -->
-  <div class="themes">
-    <button data-color="#ffdbe7"></button>
-    <button data-color="#c1d0b5"></button>
-    <button data-color="#D6E8FF"></button>
-    <button data-color="#E7E3DC"></button>
-  </div>
+  <!-- copy link -->
+  <button id="copyBtn" class="copy">copy embed link</button>
 
 </div>
 
-<script>
-// ELEMENTS
-const widget = document.getElementById("widget");
-const details = document.getElementById("details");
-const toggleBtn = document.getElementById("toggleBtn");
-const headerSign = document.getElementById("headerSign");
-const leafBtn = document.getElementById("leafBtn");
-const zodiacButtons = document.getElementById("zodiacButtons");
-const zodiacBtns = document.querySelectorAll(".zodiac-buttons button");
-const miniMagic = document.getElementById("miniMagic");
-const luckyNumber = document.getElementById("luckyNumber");
-const birthstone = document.getElementById("birthstone");
-const dailyQuote = document.getElementById("dailyQuote");
+<!-- 🌌 WIDGET -->
+<div id="widget" class="widget">
 
-// ------------------- HOROSCOPE LOADING -------------------
-async function loadHoroscope(sign) {
-  const text = document.getElementById("horoscopeText");
-  const dateLabel = document.getElementById("dateLabel");
+  <div class="top">
+    <div id="signDisplay">aries</div>
+  </div>
 
-  text.innerHTML = "checking the stars…";
-  headerSign.textContent = sign.toLowerCase();
+  <div id="text">loading stars…</div>
+  <div id="date"></div>
 
-  try {
-    const res = await fetch(
-      `https://api.api-ninjas.com/v1/horoscope?zodiac=${sign}`,
-      {
-        headers: { "X-Api-Key": "blbTUv2CVt9YgApgn2mioA==nKrg5ySEuPnb5cPE" }
-      }
-    );
+</div>
 
-    const data = await res.json();
-
-    if (!data.horoscope) {
-      text.innerHTML = "no stars today ✨";
-      return;
-    }
-
-    text.innerHTML = `<strong>${sign}</strong>${data.horoscope}`;
-    dateLabel.textContent = new Date().toLocaleDateString();
-
-    generateMiniMagic(sign);
-
-  } catch (err) {
-    console.log(err);
-    text.innerHTML = "couldn't load your horoscope ✨";
-  }
-}
-
-// ------------------- MINI MAGIC -------------------
-  const traits = {
-  aries: "exciting, fast-paced, and competitive individual",
-  taurus: "luxurious, sensual, and appreciative individual",
-  gemini: "mentally captivating, humorous, and a fun to be around individual",
-  cancer: "nurturing, sentimental, and cozy individual",
-  leo: "expressive, dramatic, and confident individual",
-  virgo: "practical, elegant, and detail-oriented individual",
-  libra: "social, charming, and loyal individual",
-  scorpio: "intense, deep, and insightful individual",
-  sagittarius: "adventurous, optimistic, and goal-oriented individual",
-  capricorn: "grounded, sophisticated, and determined individual",
-  aquarius: "unique, intellectual, and unconventional individual",
-  pisces: "dreamy, empathetic, and indulgent individual"
-};
-const birthstones = {
-  aries: { name: "diamond", color: "#eafafd" },
-  taurus: { name: "emerald", color: "#00674f" },
-  gemini: { name: "pearl", color: "#eae0c8" },
-  cancer: { name: "ruby", color: "#9b111e" },
-  leo: { name: "peridot", color: "#76f28f" },
-  virgo: { name: "sapphire", color: "#151667" },
-  libra: { name: "opal", color: "#a8c3bc" },
-  scorpio: { name: "topaz", color: "#ffc87c" },
-  sagittarius: { name: "tanzanite", color: "#3b4b7f" },
-  capricorn: { name: "garnet", color: "#830e0d" },
-  aquarius: { name: "amethyst", color: "#9966cc" },
-  pisces: { name: "aquamarine", color: "#71d9e2" }
-};
-  
-const quotes = [
-"trust the timing. ‧₊˚ ☽ ⋅",
-"let it unfold. ‧₊",
-"quietly becoming. ☕︎",
-"aligned, not rushed. ⩇⩇:⩇⩇",
-"you're allowed to start again. ✶",
-"what's meant for you won't hide. ✈︎",
-"grow at your own pace. ☾☀︎",
-"take up gentle space. ˎˊ˗",
-"listen to your own rhythm. ♬⋆.˚",
-"soft steps still move forward. ✧˖°.",
-"patience is power. ◡̈",
-"you're getting closer. ˗ˏˋ ★ ˎˊ˗",
-"stay open to good things. ༄",
-"your path is shaping itself. ⋆⭒˚.⋆",
-"small shifts change everything. ☾☀︎",
-"breathe, you're okay. ༄",
-"some days are seeds. ✶",
-"trust your quiet confidence. ◡̈",
-"you're allowed to be new. ˗ˏˋ ★ ˎˊ˗",
-"you're allowed to be gentle. ✧˖°"
-];
-
-function generateMiniMagic(sign) {
-  luckyNumber.textContent = traits[sign.toLowerCase()];
-
-  const stone = birthstones[sign.toLowerCase()];
-  birthstone.innerHTML = `birthstone: <span style="
-    display:inline-block;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background-color:${stone.color};
-    margin-right:6px;
-    vertical-align:middle;
-  "></span>${stone.name}`;
-
-  dailyQuote.innerHTML = `<em>${quotes[Math.floor(Math.random() * quotes.length)]}</em>`;
-}
-
-// ------------------- ZODIAC BUTTON LOGIC -------------------
-const savedSign = localStorage.getItem("horoscopeSign") || "aries";
-zodiacBtns.forEach(btn => {
-  if (btn.dataset.sign === savedSign) btn.classList.add("active");
-});
-zodiacBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    zodiacBtns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    const sign = btn.dataset.sign;
-    headerSign.textContent = sign;
-    localStorage.setItem("horoscopeSign", sign);
-    loadHoroscope(sign);
-  });
-});
-
-// ------------------- THEME BUTTONS -------------------
-document.querySelectorAll(".themes button").forEach(btn => {
-  btn.style.background = btn.dataset.color;
-  btn.addEventListener("click", () => {
-    widget.style.background = btn.dataset.color;
-    localStorage.setItem("horoscopeTheme", btn.dataset.color);
-  });
-});
-const savedTheme = localStorage.getItem("horoscopeTheme");
-if (savedTheme) widget.style.background = savedTheme;
-
-// ------------------- DETAILS TOGGLE -------------------
-let open = true;
-toggleBtn.addEventListener("click", () => {
-  open = !open;
-  details.style.maxHeight = open ? "300px" : "0";
-  miniMagic.style.display = open ? "none" : "block";
-  toggleBtn.textContent = open ? "⌄" : "›";
-});
-
-// ------------------- ZODIAC DROPDOWN TOGGLE -------------------
-let zodiacOpen = false;
-leafBtn.addEventListener("click", () => {
-  zodiacOpen = !zodiacOpen;
-  zodiacButtons.classList.toggle("show", zodiacOpen);
-});
-
-// ------------------- INITIAL LOAD -------------------
-headerSign.textContent = savedSign;
-loadHoroscope(savedSign);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
