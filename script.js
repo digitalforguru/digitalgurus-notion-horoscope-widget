@@ -6,8 +6,8 @@ const date = document.getElementById("date");
 const signBtn = document.getElementById("signBtn");
 const signPopup = document.getElementById("signPopup");
 
-const themeBtn = document.getElementById("themeToggle");
-const themePanel = document.getElementById("themeOptions");
+const themeBtn = document.getElementById("themeBtn");
+const themeOptions = document.getElementById("themeOptions");
 
 const fontBtn = document.getElementById("fontToggle");
 const fontPanel = document.getElementById("fontOptions");
@@ -84,17 +84,17 @@ signPopup.querySelectorAll("button").forEach(btn => {
 /* ---------------- THEME ---------------- */
 themeBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  themePanel.classList.toggle("hidden");
+  themeOptions.classList.toggle("hidden");
 });
 
-themePanel.querySelectorAll("button").forEach(btn => {
+themeOptions.querySelectorAll("button").forEach(btn => {
   btn.addEventListener("click", () => {
     state.theme = btn.dataset.theme;
 
     localStorage.setItem("theme", state.theme);
 
     applyState();
-    themePanel.classList.add("hidden");
+    themeOptions.classList.add("hidden");
   });
 });
 
@@ -121,8 +121,8 @@ document.addEventListener("click", (e) => {
     signPanel.classList.add("hidden");
   }
 
-  if (!themeBtn.contains(e.target) && !themePanel.contains(e.target)) {
-    themePanel.classList.add("hidden");
+  if (!themeBtn.contains(e.target) && !themeOptions.contains(e.target)) {
+    themeOptions.classList.add("hidden");
   }
 
   if (!fontBtn.contains(e.target) && !fontPanel.contains(e.target)) {
