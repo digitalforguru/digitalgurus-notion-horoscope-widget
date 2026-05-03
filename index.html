@@ -3,63 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DigitalGuru Horoscope Widget</title>
+  <title>DigitalGuru's Horoscope Widget</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <body>
 
-<body>
+  <div class="builder-ui">
+    <div class="widget-header">
+  DigitalGuru's Notion Horoscope Widget
+</div>
 
-<!-- 🌸 BUILDER MODE (same as weather) -->
-<div class="builder-ui">
-
-  <div class="widget-header">
-    DigitalGuru Horoscope Widget
+<div id="themeOptions" class="theme-options hidden">
+    <div class="theme-circle pink" data-theme="pink"></div>
+    <div class="theme-circle green" data-theme="#beige"></div>
+    <div class="theme-circle blue" data-theme="#blue"></div>
+    <div class="theme-circle beige" data-theme="#green"></div>
   </div>
 
-  <!-- Theme Options (SAME STRUCTURE AS WEATHER) -->
-  <div id="themeOptions" class="theme-options hidden">
-    <div class="theme-title">select theme</div>
-
-    <div class="theme-circle pink" data-theme="#ffdbe7"></div>
-    <div class="theme-circle green" data-theme="#c1d0b5"></div>
-    <div class="theme-circle blue" data-theme="#d6e8ff"></div>
-    <div class="theme-circle beige" data-theme="#e7e3dc"></div>
-  </div>
-
-  <!-- Font Options (MATCH WEATHER SYSTEM) -->
   <div id="fontOptions" class="theme-options hidden">
-    <div class="theme-title">pick your font</div>
-
     <div class="font-option" data-font="default">default</div>
     <div class="font-option" data-font="serif">serif</div>
     <div class="font-option" data-font="mono">mono</div>
   </div>
 
-  <!-- Setup text -->
+    
   <div id="usageTip" class="usage-tip">
     Welcome to your Notion widget by DigitalGuru!  
-    customize your sign + theme + font, then copy your embed link ✧
+    - customize your sign + theme + font, then copy your embed link ✧
   </div>
 
-  <!-- Controls (MATCH WEATHER LAYOUT) -->
   <div class="top-left-controls">
 
-    <!-- SIGN BUTTON (acts like locationBtn) -->
-    <div id="signBtn" class="btn location-btn" title="select sign">
+    <div id="signBtn" class="btn sign-btn" title="select sign">
       ✶
     </div>
 
-    <!-- THEME BUTTON -->
     <div id="themeToggle" class="btn theme-toggle-btn" title="select theme"></div>
 
-    <!-- FONT BUTTON -->
     <div id="fontToggle" class="btn font-toggle-btn" title="font">Aa</div>
 
   </div>
 
-  <!-- SIGN POPUP (same pattern as locationPopup) -->
-  <div id="signPopup" class="location-popup hidden">
-    <div class="location-title">pick your sign</div>
+  <div id="signPopup" class="sign-popup hidden">
+    <div class="sign-title">pick your sign</div>
 
     <div id="signPanel" class="sign-grid">
       <button data-sign="aries">aries</button>
@@ -77,7 +63,6 @@
     </div>
   </div>
 
-  <!-- COPY BUTTON (IDENTICAL TO WEATHER) -->
   <div class="setup-area">
     <button id="copyLinkBtn" class="copy-btn">
       copy my embed Notion link .ᐟ.ᐟ
@@ -88,8 +73,9 @@
     </p>
   </div>
 
-  <!-- FOOTER (same placement as weather) -->
+    
   <div class="footer-links">
+    
     <a href="https://stan.store/digitalforguru" target="_blank" class="footer-link">
       shop templates
     </a>
@@ -99,14 +85,14 @@
     <a href="https://tiktok.com/@digitaluru" target="_blank" class="footer-link">
       tiktok
     </a>
+    
   </div>
+    
+    </div>
 
-</div>
+<div id="horoscopeWidget" class="widget">
 
-<!-- 🌌 EMBED WIDGET (clean output only like weatherWidget) -->
-<div id="widget" class="widget">
-
-  <div class="weather-content">
+  <div class="widget-content">
 
     <div id="signDisplay">aries</div>
 
