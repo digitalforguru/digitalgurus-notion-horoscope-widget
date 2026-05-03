@@ -42,7 +42,7 @@ body {
   text-align: center;
 }
 
-.btn theme-btn {
+.themeBtn {
   width: 20px;
   height: 20px;
 
@@ -57,7 +57,7 @@ body {
   transition: transform 0.2s ease;
 }
 
-.theme-btn:hover {
+.themeBtn:hover {
   transform: scale(1.15);
 }
 
