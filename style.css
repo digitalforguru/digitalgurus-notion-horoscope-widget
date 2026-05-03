@@ -150,9 +150,13 @@ body {
   opacity: 0.65;
 }
 
+
 .widget {
+  transition: height 0.25s ease;
   width: 180px;
-  height: 180px;
+  height: auto;
+
+  min-height: 180px;
 
   border-radius: 22px;
 
@@ -169,33 +173,25 @@ body {
   font-size: 0.8rem;
   text-transform: lowercase;
 
-  overflow: hidden;
+  overflow: visible;
 }
 
 .widget-content {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
-  gap: 4px;
+  gap: 6px;
 
-  width: 100%;
-  height: 100%;
-
-  padding: 4px;
-  box-sizing: border-box;
+  height: auto;
 }
 
 #text {
   font-size: 0.65rem;
   line-height: 1.25;
 
-  max-height: 70px;
-  overflow: hidden;
-
   display: -webkit-box;
-  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 
   opacity: 0.9;
