@@ -90,8 +90,25 @@ document.addEventListener("click", (e) => {
 /* COPY LINK (foundation for embed system) */
 copyBtn.addEventListener("click", () => {
   const url = `${window.location.origin}${window.location.pathname}?sign=${state.sign}&theme=${encodeURIComponent(state.theme)}&embed=true`;
+
   navigator.clipboard.writeText(url);
+
+  showCopyMessage();
 });
+
+function showCopyMessage() {
+  const message = document.getElementById("copyMessage");
+
+  if (message) {
+    message.classList.remove("hidden");
+    message.classList.add("show");
+
+    setTimeout(() => {
+      message.classList.remove("show");
+      message.classList.add("hidden");
+    }, 2000);
+  }
+}
 
 /* INIT */
 applyState();
