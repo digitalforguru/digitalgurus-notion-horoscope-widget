@@ -1,51 +1,92 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "San Francisco", sans-serif;
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 30px;
+  gap: 22px;
+  padding: 40px;
+  color: #1a1a1a;
 }
 
-/* builder */
+/* ───────────────── BUILDER PANEL ───────────────── */
+
 .builder-ui {
+  width: 320px;
+  padding: 18px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .header {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
+  letter-spacing: -0.2px;
+  opacity: 0.85;
 }
 
-/* controls */
+/* controls row */
 .controls {
   display: flex;
   gap: 10px;
+  position: relative;
 }
 
+/* buttons */
 .btn {
-  padding: 8px 12px;
-  border-radius: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
   border: none;
   cursor: pointer;
-  background: white;
+
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+
+  font-size: 13px;
+
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
-/* dropdown panels */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+
+/* ───────────────── DROPDOWNS ───────────────── */
+
 .panel {
   position: absolute;
-  margin-top: 40px;
-  background: white;
+  top: 44px;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+
   padding: 10px;
   border-radius: 14px;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
+
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+
+  transform: scale(0.95);
+  transform-origin: top;
+  transition: 0.2s ease;
+}
+
+.panel.hidden {
+  display: none;
 }
 
 .panel button {
@@ -53,29 +94,73 @@ body {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-size: 12px;
+  background: #f5f5f5;
+  transition: 0.15s ease;
 }
 
-/* widget */
+.panel button:hover {
+  transform: scale(1.08);
+  background: #eaeaea;
+}
+
+/* ───────────────── WIDGET PREVIEW ───────────────── */
+
 .widget {
   width: 260px;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 22px;
+  border-radius: 22px;
+
   background: #ffdbe7;
+
+  box-shadow: 0 14px 40px rgba(0,0,0,0.10);
+
   text-align: center;
+
+  transition: background 0.3s ease;
 }
 
-/* mini text */
+#signDisplay {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: lowercase;
+  margin-bottom: 8px;
+}
+
 #text {
   font-size: 14px;
-  margin-top: 10px;
+  line-height: 1.45;
+  opacity: 0.9;
 }
 
 #date {
   font-size: 11px;
-  opacity: 0.6;
-  margin-top: 8px;
+  opacity: 0.5;
+  margin-top: 10px;
 }
 
+/* ───────────────── COPY BUTTON ───────────────── */
+
+.copy {
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: none;
+
+  background: #1a1a1a;
+  color: white;
+
+  font-size: 13px;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.copy:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* utility */
 .hidden {
   display: none;
 }
