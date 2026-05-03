@@ -105,8 +105,11 @@ body {
 /* SIGN GRID */
 .sign-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* REMOVE DEFAULT BUTTON LOOK */
@@ -114,12 +117,14 @@ body {
   all: unset;
   cursor: pointer;
 
-  font-size: 11px;
+  font-size: 10px;
+  line-height: 1;
   text-transform: lowercase;
   text-align: center;
 
-  padding: 6px 8px;
-  border-radius: 10px;
+  padding: 5px 6px;
+
+  border-radius: 9px;
 
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
@@ -127,6 +132,12 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 
   transition: transform 0.15s ease, background 0.2s ease;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+.sign-popup {
+  overflow: hidden;
 }
 
 /* HOVER = soft pop */
