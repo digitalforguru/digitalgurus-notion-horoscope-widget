@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+/* builder */
+.builder-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.header {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* controls */
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: white;
+}
+
+/* dropdown panels */
+.panel {
+  position: absolute;
+  margin-top: 40px;
+  background: white;
+  padding: 10px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.panel button {
+  padding: 6px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* widget */
+.widget {
+  width: 260px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #ffdbe7;
+  text-align: center;
+}
+
+/* mini text */
+#text {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+#date {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none;
+}
