@@ -20,7 +20,10 @@ const isEmbed = params.get("embed") === "true";
 /* ---------------- EMBED MODE ---------------- */
 if (isEmbed) {
   const builder = document.querySelector(".builder-ui");
+  const footer = document.querySelector(".footer-links");
+
   if (builder) builder.style.display = "none";
+  if (footer) footer.style.display = "none";
 }
 
 /* ---------------- STATE ---------------- */
