@@ -30,13 +30,21 @@ body {
 
 .usage-tip {
   width: 260px;
-  font-size: 12px;
-  padding: 14px;
 
-  border-radius: 16px;
-  background: rgba(255,255,255,0.75);
+  font-size: 12px;
+  line-height: 1.4;
+
+  padding: 12px 14px;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.85);
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 
   text-align: center;
+
+  backdrop-filter: blur(12px);
 }
 
 .theme-btn {
@@ -96,24 +104,18 @@ body {
 
 .sign-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
 }
 
 .sign-grid button {
-  font-size: 12px;
-  padding: 6px;
-
-  border: none;
-  border-radius: 10px;
-
-  background: rgba(255,255,255,0.7);
-
-  cursor: pointer;
+  font-size: 10px;
+  padding: 4px;
+  border-radius: 8px;
 }
 
 .sign-grid button:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .setup-area {
@@ -162,7 +164,9 @@ body {
 
   padding: 12px;
 
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4);
 
   display: flex;
   justify-content: center;
@@ -301,4 +305,27 @@ body {
   box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 
   z-index: 50;
+}
+
+.widget-title {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+  justify-content: center;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.title-suffix {
+  font-size: 0.6rem;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.divider-line {
+  width: 60%;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  margin: 2px 0 4px;
 }
