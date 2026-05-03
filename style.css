@@ -1,13 +1,11 @@
 body {
-  margin: 0;
-  padding: 10px;
+  margin: 0; padding: 10px;
   background: transparent;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   font-family: 'Satoshi', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
 }
 
 .builder-ui {
@@ -20,31 +18,46 @@ body {
 .widget-header {
   font-size: 15px;
   font-weight: 600;
+
+  letter-spacing: 0.6px;
+
   padding: 8px 16px;
 
   border-radius: 999px;
-  background: rgba(255,255,255,0.85);
 
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.7)
+  );
 
-.usage-tip {
-  width: 260px;
-
-  font-size: 12px;
-  line-height: 1.4;
-
-  padding: 12px 14px;
-
-  border-radius: 14px;
-
-  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
 
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 
   text-align: center;
 
-  backdrop-filter: blur(12px);
+  color: #444;
+
+  margin-bottom: 8px;
+}
+
+
+.usage-tip {
+  font-size: 12px;
+  line-height: 1.4;
+
+  width: 260px;
+
+  background: rgba(255,255,255,0.75);
+
+  padding: 14px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+
+  text-align: center;
 }
 
 .theme-btn {
