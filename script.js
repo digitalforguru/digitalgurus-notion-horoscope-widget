@@ -4,7 +4,7 @@ const text = document.getElementById("text");
 const date = document.getElementById("date");
 
 const signBtn = document.getElementById("signBtn");
-const signPanel = document.getElementById("signPanel");
+const signPopup = document.getElementById("signPopup");
 
 const themeBtn = document.getElementById("themeToggle");
 const themePanel = document.getElementById("themeOptions");
@@ -47,7 +47,7 @@ async function loadHoroscope(sign) {
       `https://api.api-ninjas.com/v1/horoscope?zodiac=${sign}`,
       {
         headers: {
-          "X-Api-Key": "YOUR_API_KEY"
+          "X-Api-Key": "blbTUv2CVt9YgApgn2mioA==nKrg5ySEuPnb5cPE"
         }
       }
     );
@@ -65,10 +65,10 @@ async function loadHoroscope(sign) {
 /* ---------------- SIGN ---------------- */
 signBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  signPanel.classList.toggle("hidden");
+  signPopup.classList.toggle("hidden");
 });
 
-signPanel.querySelectorAll("button").forEach(btn => {
+signPopup.querySelectorAll("button").forEach(btn => {
   btn.addEventListener("click", () => {
     state.sign = btn.dataset.sign;
 
@@ -77,7 +77,7 @@ signPanel.querySelectorAll("button").forEach(btn => {
     applyState();
     loadHoroscope(state.sign);
 
-    signPanel.classList.add("hidden");
+    signPopup.classList.add("hidden");
   });
 });
 
