@@ -87,9 +87,9 @@ themeBtn.addEventListener("click", (e) => {
   themeOptions.classList.toggle("hidden");
 });
 
-themeOptions.querySelectorAll("button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    state.theme = btn.dataset.theme;
+themeOptions.querySelectorAll(".theme-circle").forEach(circle => {
+  circle.addEventListener("click", () => {
+    state.theme = circle.dataset.theme;
 
     localStorage.setItem("theme", state.theme);
 
