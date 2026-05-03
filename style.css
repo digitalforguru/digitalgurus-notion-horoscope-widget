@@ -46,19 +46,17 @@ body {
   width: 20px;
   height: 20px;
 
+  padding: 0; /* 🔥 IMPORTANT */
+  
   border-radius: 50%;
-
-  background-color: #f4dfeb; /* default pink */
+  background-color: #f4dfeb;
 
   border: 2px solid white;
 
+  display: block; /* prevents flex weirdness */
+
   cursor: pointer;
-
   transition: transform 0.2s ease;
-}
-
-.theme-btn:hover {
-  transform: scale(1.15);
 }
 
 /* IMPORTANT: THIS FIXES YOUR “BOX INSIDE BOX” ISSUE */
