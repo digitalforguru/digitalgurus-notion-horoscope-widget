@@ -102,22 +102,45 @@ body {
   margin-bottom: 8px;
 }
 
+/* SIGN GRID */
 .sign-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
 }
 
+/* REMOVE DEFAULT BUTTON LOOK */
 .sign-grid button {
-  font-size: 10px;
-  padding: 4px;
-  border-radius: 8px;
+  all: unset;
+  cursor: pointer;
+
+  font-size: 11px;
+  text-transform: lowercase;
+  text-align: center;
+
+  padding: 6px 8px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+
+  transition: transform 0.15s ease, background 0.2s ease;
 }
 
+/* HOVER = soft pop */
 .sign-grid button:hover {
-  transform: scale(1.04);
+  transform: scale(1.06);
+  background: rgba(255,255,255,0.95);
 }
 
+/* ACTIVE / SELECTED STATE (optional but ✨ cute) */
+.sign-grid button.active {
+  background: white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+  transform: scale(1.05);
+}
 .setup-area {
   margin-top: 10px;
   text-align: center;
