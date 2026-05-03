@@ -42,6 +42,25 @@ body {
   text-align: center;
 }
 
+.theme-btn {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background-color: #f4dfeb; /* default pink */
+
+  border: 2px solid white;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.15);
+}
+
 /* IMPORTANT: THIS FIXES YOUR “BOX INSIDE BOX” ISSUE */
 .top-left-controls {
   position: relative;
