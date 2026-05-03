@@ -65,7 +65,18 @@ async function loadHoroscope(sign) {
 /* ---------------- SIGN ---------------- */
 signBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  signPopup.classList.toggle("hidden");
+
+  const isHidden = signPopup.classList.contains("hidden");
+
+  // close others first (important for consistency)
+  themeOptions.classList.add("hidden");
+  fontPanel.classList.add("hidden");
+
+  if (isHidden) {
+    signPopup.classList.remove("hidden");
+  } else {
+    signPopup.classList.add("hidden");
+  }
 });
 
 signPopup.querySelectorAll("button").forEach(btn => {
@@ -81,6 +92,11 @@ signPopup.querySelectorAll("button").forEach(btn => {
   });
 });
 
+function highlightActiveSign() {
+  signPopup.querySelectorAll("button").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.sign === state.sign);
+  });
+}
 /* ---------------- THEME ---------------- */
 themeBtn.addEventListener("click", (e) => {
   e.stopPropagation();
