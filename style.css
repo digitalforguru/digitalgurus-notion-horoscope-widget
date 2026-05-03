@@ -71,30 +71,7 @@ body {
 }
 
 /* BUTTON BASE (same vibe as weather) */
-.btn {
-  width: 56px;
-  height: 56px;
 
-  border-radius: 18px;
-  border: none;
-
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px);
-
-  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  transition: transform 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px) scale(1.05);
-}
 
 /* POPUPS (THIS FIXES “always showing / wrong layout”) */
 .hidden {
