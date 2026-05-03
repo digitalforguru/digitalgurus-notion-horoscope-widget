@@ -166,10 +166,6 @@ body {
   opacity: 0.65;
 }
 
-/* ========================= */
-/* 🌌 WIDGET (THIS IS WHY YOUR TEXT WAS HUGE) */
-/* ========================= */
-
 .widget {
   width: 180px;
   height: 180px;
@@ -192,7 +188,6 @@ body {
   overflow: hidden;
 }
 
-/* THIS FIXES YOUR “HOROSCOPE TEXT TOO BIG” ISSUE */
 .widget-content {
   display: flex;
   flex-direction: column;
@@ -231,7 +226,12 @@ body {
   transform: scale(1.25);
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
-/* THEMES (same as weather) */
+
+.widget.pink { background-color: #f4dfeb; color: #60355c; }
+.widget.beige { background-color: #faebdd; color: #5d4c3a; }
+.widget.blue { background-color: #ddebf1; color: #4b5c74; }
+.widget.green { background-color: #ddedea; color: #5b6c5a; }
+
 .theme-circle.pink { background-color: #f4dfeb; }
 .theme-circle.beige { background-color: #faebdd; }
 .theme-circle.blue { background-color: #ddebf1; }
