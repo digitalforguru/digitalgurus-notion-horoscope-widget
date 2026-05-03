@@ -10,7 +10,6 @@ body {
   font-family: 'Satoshi', sans-serif;
 }
 
-/* BUILDER AREA (same behavior as weather) */
 .builder-ui {
   display: flex;
   flex-direction: column;
@@ -18,7 +17,6 @@ body {
   gap: 10px;
 }
 
-/* HEADER */
 .widget-header {
   font-size: 15px;
   font-weight: 600;
@@ -30,7 +28,6 @@ body {
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* TIP BOX */
 .usage-tip {
   width: 260px;
   font-size: 12px;
@@ -46,20 +43,19 @@ body {
   width: 20px;
   height: 20px;
 
-  padding: 0; /* 🔥 IMPORTANT */
+  padding: 0; 
   
   border-radius: 50%;
   background-color: #f4dfeb;
 
   border: 2px solid white;
 
-  display: block; /* prevents flex weirdness */
+  display: block; 
 
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-/* IMPORTANT: THIS FIXES YOUR “BOX INSIDE BOX” ISSUE */
 .top-left-controls {
   position: relative;
   display: flex;
@@ -68,15 +64,10 @@ body {
   align-items: center;
 }
 
-/* BUTTON BASE (same vibe as weather) */
-
-
-/* POPUPS (THIS FIXES “always showing / wrong layout”) */
 .hidden {
   display: none !important;
 }
 
-/* SIGN POPUP (weather-style dropdown) */
 .sign-popup {
   position: absolute;
   top: 68px;
@@ -125,7 +116,6 @@ body {
   transform: scale(1.05);
 }
 
-/* COPY AREA (same as weather) */
 .setup-area {
   margin-top: 10px;
   text-align: center;
@@ -231,7 +221,37 @@ body {
 .theme-circle.blue { background-color: #ddebf1; }
 .theme-circle.green { background-color: #ddedea; }
 
-/* FONT SYSTEM */
 .widget.font-default { font-family: system-ui, sans-serif; }
 .widget.font-serif { font-family: Georgia, serif; }
 .widget.font-mono { font-family: ui-monospace, monospace; }
+
+.themes-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.font-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+  align-items: center;
+}
+.font-option {
+  font-size: 12px;
+  padding: 6px 10px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.7);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.font-option:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.95);
+}
