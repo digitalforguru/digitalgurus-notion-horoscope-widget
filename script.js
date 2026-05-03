@@ -117,8 +117,8 @@ fontPanel.querySelectorAll(".font-option").forEach(btn => {
 
 /* ---------------- OUTSIDE CLICK ---------------- */
 document.addEventListener("click", (e) => {
-  if (!signBtn.contains(e.target) && !signPanel.contains(e.target)) {
-    signPanel.classList.add("hidden");
+  if (!signBtn.contains(e.target) && !signPopup.contains(e.target)) {
+    signPopup.classList.add("hidden");
   }
 
   if (!themeBtn.contains(e.target) && !themeOptions.contains(e.target)) {
