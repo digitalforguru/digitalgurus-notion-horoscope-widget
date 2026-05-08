@@ -299,11 +299,15 @@ body {
 .widget.beige { background-color: #faebdd; color: #5d4c3a; }
 .widget.blue { background-color: #ddebf1; color: #4b5c74; }
 .widget.green { background-color: #ddedea; color: #5b6c5a; }
+.widget.black { background-color: #17171a; color: #f5f3f1; }
+.widget.white { background-color: #f8f6f3; color: #252225; }
 
 .theme-circle.pink { background-color: #f4dfeb; }
 .theme-circle.beige { background-color: #faebdd; }
 .theme-circle.blue { background-color: #ddebf1; }
 .theme-circle.green { background-color: #ddedea; }
+.theme-circle.black { background-color: #17171a; }
+.theme-circle.white { background-color: #f8f6f3; border: 1px solid rgba(0,0,0,0.08); }
 
 .widget.font-default { font-family: system-ui, sans-serif; }
 .widget.font-serif { font-family: Georgia, serif; }
